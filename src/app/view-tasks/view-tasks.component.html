@@ -1,1 +1,32 @@
-<p>view-tasks works!</p>
+<div>
+    <button (click) = "viewTodosEC2()">Get Todos</button>
+</div>
+<div>
+    <table class='table table-hover'>
+        <thead>
+            <th>Id</th>
+            <th>Task</th>
+            <th>Is Completed?</th>
+        </thead>
+        <tbody>
+            <tr *ngFor ='let temp of allTasksArray'>
+                <td>{{temp.id}}</td>
+                <td>{{temp.title}}</td>
+                <td>{{temp.completed}}</td>
+                <!-- <td><input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"></td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>
+<div>
+    <form [formGroup]="todos">
+        <input type="text" formControlName='title'>
+        <button (click)='viewTodosByIdEC2(todos)'>Get Todo By ID</button>
+    </form>
+</div>
+<form [formGroup]="todos">
+    <input type="text" formControlName='title'>
+    <button (click)='deleteTodosEC2(todos)'>Delete Todo By ID</button>
+</form>
+<div>
+</div>
