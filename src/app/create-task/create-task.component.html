@@ -1,1 +1,6 @@
-<p>create-task works!</p>
+<div>
+    <form [formGroup]="todos">
+        <input type="text" formControlName='title'>
+        <button (click)='createTodosEC2(todos)'>Create Todo</button>
+    </form>
+</div>
