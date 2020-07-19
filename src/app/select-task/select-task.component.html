@@ -1,4 +1,23 @@
-<form [formGroup]="todos">
-    <input type="text" formControlName='title'>
-    <button (click)='deleteTodosEC2(todos)'>Delete Todo By ID</button>
-</form>
+<div>
+    <form>
+        <h2>Id:</h2>
+        <input class="taskId" type="text" [(ngModel)] = 'test' name='idinput'>
+
+        <button (click)='getTaskById()'>Get Task</button>
+        <div *ngIf='buttonClicked' >
+            <h2>name:</h2>
+            <input class="taskDesc" type="text" value={{taskInfo.title}}>
+            <h2>Completed:</h2>
+            <div>
+                <div *ngIf=(taskInfo.completed)>
+                    <input class="taskDesc" type="checkbox" value={{taskInfo.completed}} checked>
+                </div>
+                <div *ngIf=!(taskInfo.completed)>
+                    <input class="taskDesc" type="checkbox" value={{taskInfo.completed}}>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>

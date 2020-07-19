@@ -1,6 +1,7 @@
 <div>
-    <button (click) = "viewTodosEC2()">Get Todos</button>
+    <button (click) = "getTasks()">Refresh</button>
 </div>
+<br>
 <div>
     <table class='table table-hover'>
         <thead>
@@ -10,23 +11,20 @@
         </thead>
         <tbody>
             <tr *ngFor ='let temp of allTasksArray'>
-                <td>{{temp.id}}</td>
+                <td><a [routerLink]="['/taskbyid',temp.id]">{{temp.id}}</a></td>
                 <td>{{temp.title}}</td>
                 <td>{{temp.completed}}</td>
-                <!-- <td><input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"></td>
-            </tr> -->
+                <!-- <td><input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"></td>-->
+            </tr> 
         </tbody>
     </table>
 </div>
 <div>
     <form [formGroup]="todos">
-        <input type="text" formControlName='title'>
-        <button (click)='viewTodosByIdEC2(todos)'>Get Todo By ID</button>
+        <input type="number" formControlName='id' placeholder="Task ID">
+        <button (click)='getTaskById(todos)'>Get Task</button>
+        <button (click)='deleteTaskById(todos)'>Delete Task</button>
     </form>
 </div>
-<form [formGroup]="todos">
-    <input type="text" formControlName='title'>
-    <button (click)='deleteTodosEC2(todos)'>Delete Todo By ID</button>
-</form>
 <div>
 </div>

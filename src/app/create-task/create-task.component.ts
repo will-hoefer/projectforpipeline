@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { UpdateService } from '../services/update.service';
+import { TasksService } from '../services/tasks.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,16 +13,15 @@ export class CreateTaskComponent implements OnInit {
     title: new FormControl
   });
 
-  constructor(private route: ActivatedRoute, private update: UpdateService) { }
+  constructor(private route: ActivatedRoute, private update: TasksService) { }
 
-  createTodosEC2(todoSub: FormGroup){
-    //Stringifying values, due to the request body content-type being a JSON
-    let form= JSON.stringify(todoSub.value)
-    this.update.createTodos(form).subscribe(
+  createTask(todoSub: FormGroup){
+    const form = JSON.stringify(todoSub.value);
+    this.update.postTask(form).subscribe(
       response => {
         console.log('success');
       }
-    )
+    );
   }
 
   ngOnInit(): void {

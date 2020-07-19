@@ -1,8 +1,16 @@
-<ul class="nav nav-tabs">
-  <li><a routerLink="/view">View</a></li>
-  <li><a routerLink="/create">Create</a></li>
-  <li><a routerLink="/select">Selected Task</a></li>
-  </ul>
-  <div class="container"> 
-    <router-outlet></router-outlet>
+  <div class="header" id="home-header">
+    <h1>Task Manager</h1>
+  </div>
+  <div class="bodyTemplate">
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/view">All Tasks</a></li>
+        <li><a routerLink="/select">Ind. Task</a></li>
+        <li><a routerLink="/create">Add Task</a></li>
+      </ul>
+    </nav>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
