@@ -1,0 +1,33 @@
+.taskId, .taskDesc{
+    height: 30px;
+    font-size: 15px;
+    border: 2px solid #f6376d;
+    border-radius: 5px;
+    color: black;
+}
+
+input[type=text]:focus, .taskDesc:focus{
+    background-color: #dae4f0;
+}
+
+.taskId{
+    width: 40px;
+    text-align: center;
+}
+
+.taskDesc{
+    width: 100%;
+    resize: vertical;
+    text-justify: distribute;
+}
+
+button{
+    margin-left: 10px;
+    background-color: #f6376d;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}

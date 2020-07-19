@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ViewService } from '../services/view.service';
-import { DeleteService } from '../services/delete.service';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-view-tasks',
@@ -15,45 +14,48 @@ export class ViewTasksComponent implements OnInit {
   theCheckbox = false;
   marked = false;
   todos = new FormGroup({
-    title: new FormControl
+    id: new FormControl(''),
+    title: new FormControl('')
   });
- 
-  constructor(private route: ActivatedRoute, private view: ViewService, private del:DeleteService) { }
-  
-  
-  viewTodosEC2(){
-    this.view.viewTodos().subscribe(
+
+  constructor(private route: ActivatedRoute, private view: TasksService) { }
+
+  getTasks(){
+    this.view.getTasksServ().subscribe(
       response => {
         console.log(response);
         this.allTasksArray= response;
       }
     )
   }
-  
-  viewTodosByIdEC2(todoSub: FormGroup){
-    let form= todoSub.get("title").value;
-    this.view.viewTodosById(form).subscribe(
+
+  getTaskById(todoSub: FormGroup){
+    const taskid = todoSub.get('id').value;
+    this.view.getTaskByIdServ(taskid).subscribe(
       response => {
-        this.taskInfo = response
+        //console.log(response);
+        this.taskInfo = response;
         console.log(this.taskInfo);
-        return this.taskInfo;
       }
-    )
+    );
   }
-  deleteTodosEC2(todoSub: FormGroup){
-    let form= todoSub.get("title").value;
-      this.del.deleteTodos(form).subscribe(
+
+  deleteTaskById(todoSub: FormGroup){
+    const form = todoSub.get('id').value;
+    this.view.deleteTodos(form).subscribe(
         response => {
           console.log('success');
+          window.location.reload(); // reloads the page so the changes are display
         }
-      )
+      );
+  }
+
+  toggleVisibility(e){
+      this.marked = e.target.checked;
     }
-    toggleVisibility(e){
-      this.marked= e.target.checked;
-    }
-  
+
   ngOnInit(): void {
-    
+    this.getTasks();
   }
 
 }

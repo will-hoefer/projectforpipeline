@@ -1,6 +1,8 @@
+<link rel="import" type="text/css" href="../../styles.css">
 <div>
     <form [formGroup]="todos">
-        <input type="text" formControlName='title'>
-        <button (click)='createTodosEC2(todos)'>Create Todo</button>
+        <h2>Insert New Task</h2>
+        <input type="text" formControlName='title' placeholder="Task Description"><br><br>
+        <button (click)='createTask(todos)'>Create Task</button>
     </form>
 </div>

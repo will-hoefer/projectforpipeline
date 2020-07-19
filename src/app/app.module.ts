@@ -6,16 +6,20 @@ import { ViewTasksComponent } from './view-tasks/view-tasks.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { SelectTaskComponent } from './select-task/select-task.component';
 import { RouterModule } from '@angular/router';
-import { ViewService } from './services/view.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TaskbyidComponent } from './taskbyid/taskbyid.component';
+import { TasksService } from './services/tasks.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewTasksComponent,
     CreateTaskComponent,
-    SelectTaskComponent
+    SelectTaskComponent,
+    TaskbyidComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,13 +27,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'view', component:ViewTasksComponent},
-      {path: 'create', component:CreateTaskComponent},
-      {path: 'select', component:SelectTaskComponent},
-      {path: '**', redirectTo:'view'},
+      {path: 'view', component: ViewTasksComponent},
+      {path: 'create', component: CreateTaskComponent},
+      {path: 'select', component: SelectTaskComponent},
+      {path: 'taskbyid/:id', component: TaskbyidComponent},
+      {path: '**', component: HomeComponent}
        ]),
      ],
-  providers: [ViewService],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
