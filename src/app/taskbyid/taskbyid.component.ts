@@ -17,7 +17,8 @@ export class TaskbyidComponent implements OnInit {
 
   taskById = new FormGroup({
     id: new FormControl(),
-    title: new FormControl('')
+    title: new FormControl(''),
+    completed: new FormControl()
   });
 
   constructor(private route: ActivatedRoute, private task: TasksService) { }
@@ -38,6 +39,7 @@ export class TaskbyidComponent implements OnInit {
     this.task.postTask(form).subscribe(
       response => {
         console.log('success');
+        console.log(this.taskById);
         // this.successtext = true;
       }
     );

@@ -6,6 +6,7 @@
         <h2>name:</h2>
         <input class="taskDesc" type="text" formControlName="title" 
         value={{taskInfo.title}}><br><br>
+        <input class="taskDesc" type="text" formControlName="completed"><br><br>
         <button (click)='updateTask(taskById)'>Update Task</button>
         <button (click)='deleteTaskById(taskById)'>Delete Task</button>
     </form>
