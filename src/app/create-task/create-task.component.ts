@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TasksService } from '../services/tasks.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-task',
@@ -13,13 +13,14 @@ export class CreateTaskComponent implements OnInit {
     title: new FormControl
   });
 
-  constructor(private route: ActivatedRoute, private update: TasksService) { }
+  constructor(private route: ActivatedRoute, private update: TasksService, private _router: Router) { }
 
   createTask(todoSub: FormGroup){
     const form = JSON.stringify(todoSub.value);
     this.update.postTask(form).subscribe(
       response => {
         console.log('success');
+        this._router.navigate(['/view']);
       }
     );
   }
