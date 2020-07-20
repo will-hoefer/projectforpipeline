@@ -8,12 +8,14 @@
             <th>Id</th>
             <th>Task</th>
             <th>Is Completed?</th>
+            <th>Edit</th>
         </thead>
         <tbody>
             <tr *ngFor ='let temp of allTasksArray'>
-                <td><a [routerLink]="['/select',temp.id]">{{temp.id}}</a></td>
+                <td><a [routerLink]="['/select']">{{temp.id}}</a></td>
                 <td>{{temp.title}}</td>
                 <td>{{temp.completed}}</td>
+                <td><a [routerLink]="['/select',temp.id]">Edit</a></td>
                 <!-- <td><input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"></td>-->
             </tr> 
         </tbody>
