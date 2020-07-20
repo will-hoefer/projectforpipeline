@@ -29,7 +29,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([
       {path: 'view', component: ViewTasksComponent},
       {path: 'create', component: CreateTaskComponent},
-      {path: 'select', component: SelectTaskComponent},
+      {path: 'select/:id', component: SelectTaskComponent},
       {path: 'taskbyid/:id', component: TaskbyidComponent},
       {path: '**', component: HomeComponent}
        ]),
