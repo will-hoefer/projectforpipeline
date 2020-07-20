@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TasksService } from '../services/tasks.service';
-import { IndTaskInterface } from '../taskbyid/IndTask';
 
 @Component({
   selector: 'app-view-tasks',
@@ -11,32 +10,15 @@ import { IndTaskInterface } from '../taskbyid/IndTask';
 })
 export class ViewTasksComponent implements OnInit {
   taskInfo;
-  allTasksArray:IndTaskInterface[];
-  filteredAllTasksArray: IndTaskInterface[];
- /*  theCheckbox = false; */
+  allTasksArray;
+  theCheckbox = false;
   marked = false;
-  attrListFilter = "This is the default title";
-  get listFilter(): string {
-    return this.attrListFilter;
-  }
-  set listFilter(temp:string) {
-    this.attrListFilter = temp;
-    this.filteredAllTasksArray = this.attrListFilter ?
-    this.performFilter(this.attrListFilter) : this.allTasksArray;
-  }
-  performFilter(filterBy: string): IndTaskInterface[]{
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.allTasksArray.filter((todoList:IndTaskInterface) => 
-    todoList.title.toLocaleLowerCase().indexOf(filterBy) !==-1);
-  }
   todos = new FormGroup({
     id: new FormControl(''),
     title: new FormControl('')
   });
 
   constructor(private route: ActivatedRoute, private view: TasksService) { }
-
-
 
   getTasks(){
     this.view.getTasksServ().subscribe(
