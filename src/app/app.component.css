@@ -29,8 +29,12 @@ nav>ul>li{
     font-size: 15px;
     font-weight: bold;
     font-family: helvetica, sans-serif;
-    margin: 40px auto;
+    border-bottom: 1px solid rgba(100,100,100,0.3);
+    margin-left: -40px;
+    text-align: left;
+    padding-bottom: 15px;
 }
+
 
 .bodyTemplate{
     display: grid;
@@ -39,7 +43,8 @@ nav>ul>li{
 }
 
 nav{
-    margin-left: 0px;
+    margin: 0;
+    height: 100%;
     grid-column-start: 1;
     background-color: #b3c6e4;
     border-radius: 10px;
@@ -64,3 +69,12 @@ a:visited {
   a:active {
     color: blue;
   }
+
+ .nav-button{
+     background-color: #b3c6e4;
+     color: black;
+     width: 150px;
+     padding:0;
+     margin: 0;
+     border: none;
+ }
