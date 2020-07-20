@@ -34,6 +34,17 @@ export class TaskbyidComponent implements OnInit {
     );
   }
 
+  completeTask(taskById:FormGroup){
+    const form = JSON.stringify(taskById.value);
+    this.task.patchTask(this.taskId).subscribe(
+      response => {
+        console.log('success');
+        console.log(this.taskById);
+        // this.successtext = true;
+      }
+    );
+  }
+
   updateTask(taskById: FormGroup){
     const form = JSON.stringify(taskById.value);
     this.task.postTask(form).subscribe(

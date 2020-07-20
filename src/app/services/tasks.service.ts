@@ -41,6 +41,17 @@ export class TasksService {
     };
     return this.httpCli.post<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos', todoForm, httpHead);
   }
+  
+  patchTask(id): Observable<string>{
+    const httpHead = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+    return this.httpCli.patch<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/'+ id, httpHead);
+  }
+
 
   updateTask(todoForm): Observable<string>{
     const httpHead = {

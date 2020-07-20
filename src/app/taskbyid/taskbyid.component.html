@@ -6,7 +6,8 @@
         <h2>name:</h2>
         <input class="taskDesc" type="text" formControlName="title" 
         value={{taskInfo.title}}><br><br>
-        <input class="taskDesc" type="text" formControlName="completed"><br><br>
+        <h2>Is completed?:</h2>
+        <input class="taskDesc" type="text" formControlName="completed"> <button (click)='completeTask(taskById)'>Complete Task</button>
         <button (click)='updateTask(taskById)'>Update Task</button>
         <button (click)='deleteTaskById(taskById)'>Delete Task</button>
     </form>
