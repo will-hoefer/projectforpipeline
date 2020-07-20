@@ -11,7 +11,7 @@ import { IndTaskInterface } from '../taskbyid/IndTask';
 })
 export class ViewTasksComponent implements OnInit {
   taskInfo;
-  allTasksArray: IndTaskInterface[];
+  allTasksArray:IndTaskInterface[];
   filteredAllTasksArray: IndTaskInterface[];
  /*  theCheckbox = false; */
   marked = false;

@@ -26,7 +26,7 @@
         </thead>
         <tbody>
             <tr *ngFor ='let temp of allTasksArray'>
-                <td><a [routerLink]="['/select', temp.id]">{{temp.id}}</a></td>
+                <td><a [routerLink]="['/select',temp.id]">{{temp.id}}</a></td>
                 <td>{{temp.title}}</td>
                 <td>{{temp.completed}}</td>
                 <td><a [routerLink]="['/taskbyid',temp.id]">Edit</a></td>
