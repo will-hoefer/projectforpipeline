@@ -11,6 +11,7 @@ import { TasksService } from '../services/tasks.service';
 export class ViewTasksComponent implements OnInit {
   taskInfo;
   allTasksArray;
+  searchString: string;
   theCheckbox = false;
   marked = false;
   todos = new FormGroup({
