@@ -40,8 +40,8 @@ export class TasksService {
       })
     };
     return this.httpCli.post<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos', todoForm, httpHead);
-  } 
-
+  }
+  
   patchTask(id): Observable<string>{
     const httpHead = {
       headers: new HttpHeaders({
@@ -52,6 +52,7 @@ export class TasksService {
     return this.httpCli.patch<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/'+ id, httpHead);
   }
 
+
   updateTask(todoForm): Observable<string>{
     const httpHead = {
       headers: new HttpHeaders({
@@ -61,7 +62,6 @@ export class TasksService {
     };
     return this.httpCli.put<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos', todoForm, httpHead);
   }
-
 
   deleteTodos(todoForm): Observable<string>{
     let url:string = 'http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/'+todoForm;

@@ -18,7 +18,7 @@ export class SelectTaskComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private task: TasksService) { }
 
-  getTaskById(taskId): void{
+  getTaskById(): void{
     this.task.getTaskByIdServ(this.test).subscribe(
       response => {
         //console.log(response);
@@ -40,7 +40,7 @@ export class SelectTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.taskId = this.route.snapshot.paramMap.get('view');
+
   }
 
 }
