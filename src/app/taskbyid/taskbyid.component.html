@@ -1,14 +1,14 @@
 <div  *ngIf="isDataAvailable">
     <form [formGroup]="taskById">
         <h2>Id:</h2>
-        <input class="taskId" type="text" formControlName="id" value="{{taskInfo.id}}">
-
+        <input class="taskId" type="text" formControlName="id" 
+        [(ngModel)]= 'taskInfo.id'>
         <h2>name:</h2>
         <input class="taskDesc" type="text" formControlName="title" 
-        value={{taskInfo.title}}><br><br>
-        <h2>Is completed?:</h2>
-        <input class="taskDesc" type="text" formControlName="completed"> <button (click)='completeTask(taskById)'>Complete Task</button>
+        [(ngModel)]= 'taskInfo.title'><br><br>
+        <button (click)='completeTask(taskById)'>Complete Task</button>
         <button (click)='updateTask(taskById)'>Update Task</button>
         <button (click)='deleteTaskById(taskById)'>Delete Task</button>
+        
     </form>
 </div>

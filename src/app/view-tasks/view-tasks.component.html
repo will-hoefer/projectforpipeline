@@ -1,5 +1,11 @@
 <div>
-    <button (click) = "getTasks()">Refresh</button>
+    <input
+    type="text"
+    class="form-control"
+    name="searchString"
+    placeholder="Type to search..."
+    [(ngModel)]="searchString"
+  />
 </div>
 <br>
 <div>
@@ -11,8 +17,8 @@
             <th>Edit</th>
         </thead>
         <tbody>
-            <tr *ngFor ='let temp of allTasksArray'>
-                <td><a [routerLink]="['/select']">{{temp.id}}</a></td>
+            <tr *ngFor ='let temp of allTasksArray | filter : "title" : searchString; let i = index'>
+                <td>{{temp.id}}</td>
                 <td>{{temp.title}}</td>
                 <td>{{temp.completed}}</td>
                 <td><a [routerLink]="['/select',temp.id]">Edit</a></td>
@@ -24,7 +30,6 @@
 <div>
     <form [formGroup]="todos">
         <input type="number" formControlName='id' placeholder="Task ID">
-        <button (click)='getTaskById(todos)'>Get Task</button>
         <button (click)='deleteTaskById(todos)'>Delete Task</button>
     </form>
 </div>
