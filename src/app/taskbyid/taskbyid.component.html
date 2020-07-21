@@ -2,7 +2,7 @@
     <form [formGroup]="taskById">
         <h2>Id:</h2>
         <input class="taskId" type="text" formControlName="id" 
-        [(ngModel)]= 'taskInfo.id'>
+        [(ngModel)]= 'taskInfo.id' disabled>
         <h2>name:</h2>
         <input class="taskDesc" type="text" formControlName="title" 
         [(ngModel)]= 'taskInfo.title'><br><br>
