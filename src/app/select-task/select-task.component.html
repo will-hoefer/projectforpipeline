@@ -4,8 +4,8 @@
         <input class="taskId" type="text" [(ngModel)] = 'test' name='idinput'>
 
         <button (click)='getTaskById()'>Get Task</button>
-        <div *ngIf='buttonClicked' >
-            <table class='table table-hover'>
+        <div *ngIf='buttonClicked'>
+            <table id="taskTable">
                 <thead>
                     <th>Name</th>
                     <th>Completed</th>

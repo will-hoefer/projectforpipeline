@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../services/tasks.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IndTaskInterface } from './IndTask';
@@ -21,7 +21,7 @@ export class TaskbyidComponent implements OnInit {
     completed: new FormControl()
   });
 
-  constructor(private route: ActivatedRoute, private task: TasksService) { }
+  constructor(private route: ActivatedRoute, private task: TasksService, private _router: Router) { }
 
   getTaskById(): void{
     this.task.getTaskByIdServ(this.taskId).subscribe(
@@ -40,6 +40,7 @@ export class TaskbyidComponent implements OnInit {
       response => {
         console.log('success');
         console.log(this.taskById);
+        this._router.navigate(['/view']);
       }
     );
   }
@@ -50,6 +51,7 @@ export class TaskbyidComponent implements OnInit {
       response => {
         console.log('success');
         console.log(this.taskById);
+        this._router.navigate(['/view']);
         // this.successtext = true;
       }
     );
@@ -60,6 +62,7 @@ export class TaskbyidComponent implements OnInit {
     this.task.deleteTodos(form).subscribe(
         response => {
           console.log('success');
+          this._router.navigate(['/view']);
         }
       );
     }

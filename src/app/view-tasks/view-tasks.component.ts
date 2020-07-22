@@ -50,11 +50,11 @@ export class ViewTasksComponent implements OnInit {
         }
       );
   }
-
+  
   toggleVisibility(e){
       this.marked = e.target.checked;
     }
-
+    
   ngOnInit(): void {
     this.getTasks();
   }
