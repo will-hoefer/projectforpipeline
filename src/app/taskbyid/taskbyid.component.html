@@ -1,14 +1,18 @@
-<div  *ngIf="isDataAvailable">
-    <form [formGroup]="taskById">
-        <h2>Id:</h2>
-        <input class="taskId" type="text" formControlName="id" 
-        [(ngModel)]= 'taskInfo.id' disabled>
-        <h2>name:</h2>
-        <input class="taskDesc" type="text" formControlName="title" 
-        [(ngModel)]= 'taskInfo.title'><br><br>
-        <button (click)='completeTask(taskById)'>Complete Task</button>
+<div class="container-taskbyid">
+    <div class="maindiv" *ngIf="isDataAvailable">
+        <form [formGroup]="taskById">
+            <h2>Id:</h2>
+            <input class="taskId" type="text" formControlName="id" 
+            [(ngModel)]= 'taskInfo.id' disabled><br><br>
+            <h2>Task Description:</h2>
+            <input class="taskDesc" type="text" maxlength = "200" formControlName="title" 
+            [(ngModel)]= 'taskInfo.title'><br><br>
+            <h2 class="h2done">Task completed?</h2> <input class="checkbox" type="checkbox" formControlName="completed" [(ngModel)]= 'taskInfo.completed'>
+        </form>
+    </div>
+    <div class="buttons">
         <button (click)='updateTask(taskById)'>Update Task</button>
+        <br><br>
         <button (click)='deleteTaskById(taskById)'>Delete Task</button>
-        
-    </form>
+    </div>
 </div>

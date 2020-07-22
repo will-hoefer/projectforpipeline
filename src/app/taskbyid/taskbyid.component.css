@@ -1,9 +1,28 @@
+.container-taskbyid{
+    margin-top: -0px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.maindiv{
+    grid-column-start: 1;
+    margin: 10px;
+}
+
+.buttons{
+    grid-column-start: 2;
+    margin: auto;
+}
+
 .taskId, .taskDesc{
     height: 30px;
     font-size: 15px;
-    border: 2px solid #f6376d;
+    border: 2px solid #b3c6e4;
     border-radius: 5px;
     color: black;
+
 }
 
 input[type=text]:focus, .taskDesc:focus{
@@ -13,17 +32,18 @@ input[type=text]:focus, .taskDesc:focus{
 .taskId{
     width: 40px;
     text-align: center;
+    background-color: #deeaf8;
 }
 
 .taskDesc{
     width: 100%;
     resize: vertical;
     text-justify: distribute;
+    height: 50px;
 }
 
 button{
-    margin-left: 10px;
-    background-color: #f6376d;
+    background-color: #263145;
     color: white;
     font-size: 13px;
     font-weight: bold;
@@ -31,4 +51,17 @@ button{
     width: 100px;
     height: 40px;
     vertical-align: middle;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.h2done{
+    display: inline-block;
+}
+.checkbox{
+    display: inline-block;
+    margin-left: 10px;
+    zoom:1.4;
 }
