@@ -34,30 +34,30 @@ export class ViewTasksComponent implements OnInit {
   deleteTaskById(todoSub: FormGroup){
     const form = todoSub.get('id').value;
     let counter = 0;
-    for (let i = 0; i < this.allTasksArray.length; i++){
-      if(this.allTasksArray[i].id == form){
+    // for (let i = 0; i < this.allTasksArray.length; i++){
+      // if (this.allTasksArray[i].id === form){
+    for (const item of this.allTasksArray){
+      if (item.id === form){
         counter++;
       }
     }
     if (counter > 0){
-    this.view.deleteTodos(form).subscribe(
+      this.view.deleteTodos(form).subscribe(
         response => {
-          console.log('success');
-          window.location.reload(); // reloads the page so the changes are display
+          this.inputError = `You have successfully deleted Task #:  ${form}`;
+          setTimeout(() => { window.location.reload(); }, 1000);
         },
         error => {
-          console.log(error);
-          if (error.status === 0 && error.statusText === 'Unknown Error') {
-
-          }
-          else if (error.status === 400) {
-            this.inputError = 'You must enter a number for the Task Id';
-          }
-          else {
+            console.log(error);
+            // this.inputError = 'You must enter a number for the Task Id';
             this.inputError = error.error.error;
-          }
         }
       );
+    }
+    else{
+      console.log(`Input error:  No existing task with id:  ${form}`);
+      this.inputError = `There is no existing task with id ${form}`;
+    }
   }
 
   toggleVisibility(e){
