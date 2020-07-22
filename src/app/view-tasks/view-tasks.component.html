@@ -33,5 +33,7 @@
         <button (click)='deleteTaskById(todos)'>Delete Task</button>
     </form>
 </div>
-<div>
+<!-- || (!buttonClicked && !taskInfo.id)'> -->
+<div class = "errorMsg" *ngIf='!buttonClicked && inputError'>
+    {{inputError}}
 </div>

@@ -8,3 +8,8 @@ button{
     width: 100px;
     height: 40px;
 }
+.errorMsg{
+    color:red;
+    font-size: 18px;
+    margin-top: 10px;
+}
