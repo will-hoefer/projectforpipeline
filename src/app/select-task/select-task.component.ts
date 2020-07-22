@@ -23,16 +23,24 @@ export class SelectTaskComponent implements OnInit {
   getTaskById(): void{
     this.task.getTaskByIdServ(this.test).subscribe(
       response => {
-        // console.log(response);
-        this.taskInfo = response;
-        console.log(this.taskInfo);
-        this.buttonClicked = true;
+        if (this.test === ''){
+          this.inputError = 'Please enter a number for the Task Id';
+        }
+        else {
+          // console.log(response);
+          this.taskInfo = response;
+          console.log(this.taskInfo);
+          this.buttonClicked = true;
+        }
       },
       error => {
-        // console.log(error);
-        this.taskInfo = error;
-        this.inputError = error.error.error;
-        console.log(this.taskInfo);
+        console.log(error);
+        if (error.status === 400) {
+          this.inputError = 'You must enter a number for the Task Id';
+        }
+        else {
+          this.inputError = error.error.error;
+        }
         this.buttonClicked = false;
       }
     );
