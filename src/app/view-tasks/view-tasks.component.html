@@ -22,7 +22,6 @@
                 <td>{{temp.title}}</td>
                 <td>{{temp.completed ? "Yes" : "No"}}</td> 
                 <td><a [routerLink]="['/select',temp.id]">Edit</a></td>
-                <!-- <td><input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"></td>-->
             </tr> 
         </tbody>
     </table>
@@ -34,6 +33,6 @@
     </form>
 </div>
 <!-- || (!buttonClicked && !taskInfo.id)'> -->
-<div class = "errorMsg" *ngIf='!buttonClicked && inputError'>
+<div class = "errorMsg" *ngIf='inputError'>
     {{inputError}}
 </div>
