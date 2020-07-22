@@ -11,6 +11,8 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskbyidComponent } from './taskbyid/taskbyid.component';
 import { TasksService } from './services/tasks.service';
 import { HomeComponent } from './home/home.component';
+import { FilterPipe } from './home/shared/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     CreateTaskComponent,
     SelectTaskComponent,
     TaskbyidComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
