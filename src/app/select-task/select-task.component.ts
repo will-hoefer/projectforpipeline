@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TasksService } from '../services/tasks.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IndTaskInterface } from '../taskbyid/IndTask';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-select-task',
@@ -14,6 +15,7 @@ export class SelectTaskComponent implements OnInit {
   taskInfoObj: IndTaskInterface;
   taskId = 'noId';
   test = '';
+  inputError = '';
   buttonClicked = false;
 
   constructor(private route: ActivatedRoute, private task: TasksService) { }
@@ -21,10 +23,17 @@ export class SelectTaskComponent implements OnInit {
   getTaskById(): void{
     this.task.getTaskByIdServ(this.test).subscribe(
       response => {
-        //console.log(response);
+        // console.log(response);
         this.taskInfo = response;
         console.log(this.taskInfo);
         this.buttonClicked = true;
+      },
+      error => {
+        // console.log(error);
+        this.taskInfo = error;
+        this.inputError = error.error.error;
+        console.log(this.taskInfo);
+        this.buttonClicked = false;
       }
     );
   }
