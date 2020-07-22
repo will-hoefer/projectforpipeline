@@ -4,6 +4,7 @@ import { TasksService } from '../services/tasks.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IndTaskInterface } from './IndTask';
 
+
 @Component({
   selector: 'app-taskbyid',
   templateUrl: './taskbyid.component.html',
@@ -11,7 +12,6 @@ import { IndTaskInterface } from './IndTask';
 })
 export class TaskbyidComponent implements OnInit {
   taskInfo: IndTaskInterface;
-  taskInfoObj: IndTaskInterface;
   taskId = 'noId';
   isDataAvailable = false;
 
@@ -35,26 +35,39 @@ export class TaskbyidComponent implements OnInit {
   }
 
   completeTask(taskById:FormGroup){
-    const form = JSON.stringify(taskById.value);
-    this.task.patchTask(this.taskId).subscribe(
+    const form = taskById.get('id').value;
+    this.task.patchTask(form).subscribe(
       response => {
         console.log('success');
-        console.log(this.taskById);
-        this._router.navigate(['/view']);
+        console.log(form);
+        // this._router.navigate(['/view']);
       }
     );
   }
 
   updateTask(taskById: FormGroup){
     const form = JSON.stringify(taskById.value);
+    const completed = taskById.get('completed').value;
+    console.log(completed);
+    if (completed === true) {
+      this.task.postTask(form).subscribe(
+        response => {
+          this.completeTask(taskById);
+          console.log('success');
+          console.log(this.taskById);
+          setTimeout(() => { this._router.navigate(['/view']);}, 500);
+          // this.successtext = true;
+        }
+      );
+   } else {
     this.task.postTask(form).subscribe(
       response => {
         console.log('success');
         console.log(this.taskById);
         this._router.navigate(['/view']);
-        // this.successtext = true;
       }
     );
+   }
   }
 
   deleteTaskById(taskById: FormGroup){

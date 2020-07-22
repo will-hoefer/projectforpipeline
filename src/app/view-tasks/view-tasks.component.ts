@@ -43,12 +43,22 @@ export class ViewTasksComponent implements OnInit {
 
   deleteTaskById(todoSub: FormGroup){
     const form = todoSub.get('id').value;
+    let counter = 0;
+    for (let i = 0; i < this.allTasksArray.length; i++){
+      if(this.allTasksArray[i].id == form){
+        counter++;
+      }
+    }
+    if (counter > 0){
     this.view.deleteTodos(form).subscribe(
-        response => {
-          console.log('success');
-          window.location.reload(); // reloads the page so the changes are display
-        }
-      );
+      response => {
+        console.log(response);
+        window.location.reload(); // reloads the page so the changes are display
+      }
+    )
+    }else{
+      console.log('error');
+    }
   }
   
   toggleVisibility(e){

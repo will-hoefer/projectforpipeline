@@ -1,7 +1,7 @@
 <div>
     <form>
         <h2>Id:</h2>
-        <input class="taskId" type="text" [(ngModel)] = 'test' name='idinput'>
+        <input class="taskId" type="number" [(ngModel)] = 'test' name='idinput'>
 
         <button (click)='getTaskById()'>Get Task</button>
         <div *ngIf='buttonClicked'>

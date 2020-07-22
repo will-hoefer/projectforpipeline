@@ -49,7 +49,7 @@ export class TasksService {
         'Access-Control-Allow-Origin': '*'
       })
     };
-    return this.httpCli.patch<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/'+ id, httpHead);
+    return this.httpCli.patch<string>('http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/' + id, httpHead);
   }
 
 
