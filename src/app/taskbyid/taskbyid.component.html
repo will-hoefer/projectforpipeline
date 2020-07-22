@@ -1,3 +1,4 @@
+<link rel="import" type="text/css" href="../../styles.css">
 <div class="container-taskbyid">
     <div class="maindiv" *ngIf="isDataAvailable">
         <form [formGroup]="taskById">
@@ -11,8 +12,8 @@
         </form>
     </div>
     <div class="buttons">
-        <button (click)='updateTask(taskById)'>Update Task</button>
+        <button class="updatebutton" (click)='updateTask(taskById)'>Update Task</button>
         <br><br>
-        <button (click)='deleteTaskById(taskById)'>Delete Task</button>
+        <button class="deletebutton" (click)='deleteTaskById(taskById)'>Delete Task</button>
     </div>
 </div>

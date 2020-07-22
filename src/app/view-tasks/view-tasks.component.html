@@ -1,3 +1,4 @@
+<link rel="import" type="text/css" href="../../styles.css">
 <div>
     <input
     type="text"
@@ -29,7 +30,7 @@
 <div>
     <form [formGroup]="todos">
         <input type="number" formControlName='id' placeholder="Task ID">
-        <button (click)='deleteTaskById(todos)'>Delete Task</button>
+        <button class="deletebutton" (click)='deleteTaskById(todos)'>Delete Task</button>
     </form>
 </div>
 <div class = "errorMsg" *ngIf='inputError'>

@@ -9,3 +9,13 @@ button{
     width: 100px;
     height: 40px;
 }
+
+.updatebutton{
+    background-color:rgb(111, 179, 111);
+    color: white;
+}
+
+.deletebutton{
+    background-color:red;
+    color: white;
+}

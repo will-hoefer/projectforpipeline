@@ -34,6 +34,8 @@ export class ViewTasksComponent implements OnInit {
   deleteTaskById(todoSub: FormGroup){
     const form = todoSub.get('id').value;
     let counter = 0;
+    // for (let i = 0; i < this.allTasksArray.length; i++){
+      // if (this.allTasksArray[i].id === form){
     for (const item of this.allTasksArray){
       if (item.id === form){
         counter++;
@@ -52,13 +54,8 @@ export class ViewTasksComponent implements OnInit {
         }
       );
     }
-    else if (form === null || form === '') {
-      console.log(`Input error:  enter a number for the Task Id, not ${form}`);
-      this.inputError = 'You must enter a number for the Task Id';
-    }
-
-    else {
-      console.log(`Input error:  No existing task with id ${form}`);
+    else{
+      console.log(`Input error:  No existing task with id:  ${form}`);
       this.inputError = `There is no existing task with id ${form}`;
     }
   }

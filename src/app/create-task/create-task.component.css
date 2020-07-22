@@ -1,0 +1,17 @@
+textarea[type=text]:focus{
+    background-color: #dae4f0;
+}
+
+textarea{
+    width: 370px;
+    height: 100px;
+    resize: none;
+    text-align: justify;
+    padding: 5px;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+}
+
+button{
+    margin-left: 0px;
+}

@@ -2,7 +2,10 @@
 <div>
     <form [formGroup]="todos">
         <h2>Insert New Task</h2>
-        <input type="text" formControlName='title' placeholder="Task Description"><br><br>
-        <button (click)='createTask(todos)'>Add</button>
+        <!-- <input type="text" formControlName='title' placeholder="Task Description"><br><br> -->
+
+        <textarea type="text" formControlName='title' placeholder="Task Description" maxlength = "200"></textarea><br>
+
+        <button class="updatebutton" (click)='createTask(todos)'>Add</button>
     </form>
 </div>

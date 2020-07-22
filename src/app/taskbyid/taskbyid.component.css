@@ -43,7 +43,6 @@ input[type=text]:focus, .taskDesc:focus{
 }
 
 button{
-    background-color: #263145;
     color: white;
     font-size: 13px;
     font-weight: bold;
