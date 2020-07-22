@@ -4,7 +4,7 @@
         <input class="taskId" type="number" [(ngModel)] = 'test' name='idinput'>
 
         <button (click)='getTaskById()'>Get Task</button>
-        <div *ngIf='buttonClicked'>
+        <div *ngIf='buttonClicked && taskInfo.id'>  <!-- prevent output when no id -->
             <table id="taskTable">
                 <thead>
                     <th>Name</th>
@@ -25,6 +25,11 @@
                 </tr>
             </table>
 
+        </div>
+        <!-- || (!buttonClicked && !taskInfo.id)'> -->
+        <div class = "errorMsg"
+                *ngIf='!buttonClicked && inputError'>
+            {{inputError}}
         </div>
 
     </form>
