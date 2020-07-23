@@ -72,3 +72,14 @@ h2 {
     margin-left: 10px;
     zoom:1.4;
 }
+
+.updatebutton, .deletebutton{
+    -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.updatebutton:hover, .deletebutton:hover{
+    width: 110px;
+    height: 45px;
+}
