@@ -1,5 +1,13 @@
+.title{
+    margin-top: -10px;
+    margin-left: -150px;
+    font-size: 25px;
+    color: rgb(33, 184, 33);
+    text-align: center;
+}
+
 .container-taskbyid{
-    margin-top: -0px;
+    margin-top: -5px;
     display: grid;
     grid-template-columns: 4fr 1fr;
     border-radius: 5px;

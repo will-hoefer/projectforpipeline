@@ -1,5 +1,22 @@
+.title{
+    margin-top: -10px;
+    font-size: 25px;
+    color: rgb(245, 71, 71);
+    text-align: center;
+    margin-left: -135px;
+}
+
 .errorMsg{
     color:red;
     font-size: 18px;
     margin-top: 10px;
+}
+
+.trash:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.editbutton:hover{
+    color: lightgreen;
 }

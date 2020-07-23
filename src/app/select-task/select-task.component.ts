@@ -27,14 +27,14 @@ export class SelectTaskComponent implements OnInit {
           this.inputError = 'Please enter a number for the Task Id';
         }
         else {
-          // console.log(response);
+          //console.log(response);
           this.taskInfo = response;
-          console.log(this.taskInfo);
+          //console.log(this.taskInfo);
           this.buttonClicked = true;
         }
       },
       error => {
-        console.log(error);
+        //console.log(error);
         if (error.status === 400) {
           this.inputError = 'You must enter a number for the Task Id';
         }
@@ -50,7 +50,7 @@ export class SelectTaskComponent implements OnInit {
     const form = JSON.stringify(todoSub.value);
     this.task.postTask(form).subscribe(
       response => {
-        console.log('success');
+        //console.log('success');
         //this.successtext = true;
       }
     );
