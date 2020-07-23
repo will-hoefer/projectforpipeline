@@ -1,3 +1,11 @@
+.title{
+    margin-top: -10px;
+    margin-left: -150px;
+    font-size: 25px;
+    color: green;
+    text-align: center;
+}
+
 textarea[type=text]:focus{
     background-color: #dae4f0;
 }
@@ -14,4 +22,9 @@ textarea{
 
 button{
     margin-left: 0px;
+}
+
+h2{
+    font-size: 20px;
+    color: rgb(228, 150, 4);
 }

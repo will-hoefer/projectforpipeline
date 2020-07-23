@@ -1,3 +1,11 @@
+.title{
+    margin-top: -10px;
+    margin-left: -150px;
+    font-size: 25px;
+    color: rgb(52, 52, 247);
+    text-align: center;
+}
+
 .maindivselecttask{
     margin-left: 20px;
 }
@@ -11,20 +19,22 @@
     margin-top: 10px;
 }
 
-h3 {
-    font-size: 20px;
+h3{
+    font-size: 18px;
     color: rgb(199, 138, 5);
 }
 
 h2{
     color: rgb(199, 138, 5);
+    font-size: 20px;
 }
 
 .taskDesc{
     align-content: center;
 }
 
-.taskDesc:disabled{
-    background-color: blue;
-    color: blue;
+.taskDesc{
+    pointer-events: none;
 }
+
+

@@ -1,4 +1,7 @@
 <link rel="import" type="text/css" href="../../styles.css">
+<div>
+    <h2 class="title">View Task</h2>
+</div>
 <div class="maindivselecttask">
     <form>
         <h2>Id:</h2>
@@ -6,37 +9,16 @@
 
         <button class="updatebutton" (click)='getTaskById()'>Get Task</button>
         <div *ngIf='buttonClicked && taskInfo.id'>  <!-- prevent output when no id -->
-           <br>
+            <br>
             <h3>Description: </h3>
-           <h4>{{taskInfo.title}}</h4>
-           <h3>Completed: </h3>
-           <div class="taskComp" *ngIf=(taskInfo.completed)>
-            <input class="taskDesc" type="checkbox" value={{taskInfo.completed}} checked disabled>
-        </div>
-        <div class="taskComp" *ngIf=!(taskInfo.completed)>
-            <input class="taskDesc" type="checkbox" value={{taskInfo.completed}} disabled>
-        </div>
-           
-            <!-- <table id="taskTable">
-                <thead>
-                    <th>Name</th>
-                    <th>Completed</th>
-                </thead>
-                <tr>
-                    <td>
-                        <input class="taskDesc" type="text" value={{taskInfo.title}}>
-                    </td>
-                    <td>
-                        <div class="taskComp" *ngIf=(taskInfo.completed)>
-                            <input class="taskDesc" type="checkbox" value={{taskInfo.completed}} checked>
-                        </div>
-                        <div class="taskComp" *ngIf=!(taskInfo.completed)>
-                            <input class="taskDesc" type="checkbox" value={{taskInfo.completed}}>
-                        </div>
-                    </td>
-                </tr>
-            </table> -->
-
+            <h4>{{taskInfo.title}}</h4>
+            <h3>Completed: </h3>
+            <div class="taskComp" *ngIf=(taskInfo.completed)>
+                <input class="taskDesc" type="checkbox" value={{taskInfo.completed}} checked>
+            </div>
+            <div class="taskComp" *ngIf=!(taskInfo.completed)>
+                <input class="taskDesc" type="checkbox" value={{taskInfo.completed}}>
+            </div>
         </div>
         <!-- || (!buttonClicked && !taskInfo.id)'> -->
         <div class = "errorMsg" *ngIf='!buttonClicked && inputError'>

@@ -26,9 +26,9 @@ export class TaskbyidComponent implements OnInit {
   getTaskById(): void{
     this.task.getTaskByIdServ(this.taskId).subscribe(
       response => {
-        // console.log(response);
+        //console.log(response);
         this.taskInfo = response;
-        console.log(this.taskInfo);
+        //console.log(this.taskInfo);
         this.isDataAvailable = true; // this makes the html page load after we run and get the values
       }
     );
@@ -38,8 +38,8 @@ export class TaskbyidComponent implements OnInit {
     const form = taskById.get('id').value;
     this.task.patchTask(form).subscribe(
       response => {
-        console.log('success');
-        console.log(form);
+        //console.log('success');
+        //console.log(form);
         // this._router.navigate(['/view']);
       }
     );
@@ -47,14 +47,15 @@ export class TaskbyidComponent implements OnInit {
 
   updateTask(taskById: FormGroup){
     const form = JSON.stringify(taskById.value);
+    //console.log('this is what JSON' + form);
     const completed = taskById.get('completed').value;
-    console.log(completed);
+    //console.log(completed);
     if (completed === true) {
       this.task.postTask(form).subscribe(
         response => {
           this.completeTask(taskById);
-          console.log('success');
-          console.log(this.taskById);
+          //console.log('success');
+          //console.log(this.taskById);
           setTimeout(() => { this._router.navigate(['/view']);}, 500);
           // this.successtext = true;
         }
@@ -62,8 +63,8 @@ export class TaskbyidComponent implements OnInit {
    } else {
     this.task.postTask(form).subscribe(
       response => {
-        console.log('success');
-        console.log(this.taskById);
+        //console.log('success');
+        //console.log(this.taskById);
         this._router.navigate(['/view']);
       }
     );
@@ -74,7 +75,7 @@ export class TaskbyidComponent implements OnInit {
     const form = taskById.get('id').value;
     this.task.deleteTodos(form).subscribe(
         response => {
-          console.log('success');
+          //console.log('success');
           this._router.navigate(['/view']);
         }
       );

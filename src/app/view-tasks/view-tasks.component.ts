@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TasksService } from '../services/tasks.service';
+import { IndTaskInterface } from '../taskbyid/IndTask';
+
 
 @Component({
   selector: 'app-view-tasks',
@@ -15,20 +17,53 @@ export class ViewTasksComponent implements OnInit {
   theCheckbox = false;
   marked = false;
   inputError = '';
+  groupInfo: IndTaskInterface;
   todos = new FormGroup({
     id: new FormControl(''),
     title: new FormControl('')
   });
+  todos2 = new FormGroup({
+    id: new FormControl(''),
+    title: new FormControl(''),
+    completed: new FormControl('')
+  });
+  string1: string;
+  idNum: number;
 
   constructor(private route: ActivatedRoute, private view: TasksService) { }
 
   getTasks(){
     this.view.getTasksServ().subscribe(
       response => {
-        console.log(response);
+        //console.log(response);
         this.allTasksArray= response;
       }
     )
+  }
+
+  updateTask(id){
+    //const form = JSON.stringify(taskById.value);
+    this.view.postTask(id).subscribe(
+      response => {
+        //console.log('succes');
+      }
+    );
+  }
+
+  completeTask(id, title, completed){
+    this.idNum = parseInt(id);
+    this.todos2.setValue({id: this.idNum, title: title, completed: false });
+    const form = JSON.stringify(this.todos2.value);
+    //console.log(form);
+    if (completed === true){
+      this.updateTask(form);
+    } else {
+    this.view.patchTask(id).subscribe(
+      response => {
+        //console.log('success');
+      }
+    );
+    }
   }
 
   deleteTaskById(todoSub: FormGroup){
@@ -48,17 +83,32 @@ export class ViewTasksComponent implements OnInit {
           setTimeout(() => { window.location.reload(); }, 1000);
         },
         error => {
-            console.log(error);
+            //console.log(error);
             // this.inputError = 'You must enter a number for the Task Id';
             this.inputError = error.error.error;
         }
       );
     }
     else{
-      console.log(`Input error:  No existing task with id:  ${form}`);
+      //console.log(`Input error:  No existing task with id:  ${form}`);
       this.inputError = `There is no existing task with id ${form}`;
     }
   }
+
+
+  deleteTask2(id){
+    let counter = 0;
+    this.view.deleteTodos(id).subscribe(
+      response => {
+        setTimeout(() => { window.location.reload(); }, 1000);
+      },
+      error => {
+          //console.log(error);
+          this.inputError = error.error.error;
+      }
+    );
+  }
+
 
   toggleVisibility(e){
       this.marked = e.target.checked;

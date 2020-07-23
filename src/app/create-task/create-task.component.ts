@@ -19,7 +19,7 @@ export class CreateTaskComponent implements OnInit {
     const form = JSON.stringify(todoSub.value);
     this.update.postTask(form).subscribe(
       response => {
-        console.log('success');
+        //console.log('success');
         this._router.navigate(['/view']);
       }
     );
