@@ -15,8 +15,23 @@
 .trash:hover{
     color: red;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .editbutton:hover{
     color: lightgreen;
+    font-size: 16px;
 }
+
+.addbuttondiv{
+    text-align: center;
+}
+
+.addbutton{
+    color: lightblue;
+}
+.addbutton:hover{
+    color: darkgreen;
+    font-size: 18px;
+}
+

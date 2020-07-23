@@ -80,4 +80,12 @@ a:visited {
      border: none;
  }
 
- 
+ @media only screen and (max-width: 600px){
+     .navtext{
+         display: none;    
+     }
+
+     svg{
+         margin-left: 18px;
+     }
+ }
