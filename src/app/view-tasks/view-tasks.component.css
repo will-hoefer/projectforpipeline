@@ -35,3 +35,13 @@
     font-size: 18px;
 }
 
+.truncateButton{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    vertical-align: middle;
+}
+
