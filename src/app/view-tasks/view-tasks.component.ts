@@ -41,6 +41,15 @@ export class ViewTasksComponent implements OnInit {
     )
   }
 
+  truncateTasks(){
+    this.view.truncateTodos().subscribe(
+      response =>{
+        console.log(response);
+        setTimeout(() => { window.location.reload(); }, 1000);
+      }
+    )
+  }
+
   updateTask(id){
     //const form = JSON.stringify(taskById.value);
     this.view.postTask(id).subscribe(

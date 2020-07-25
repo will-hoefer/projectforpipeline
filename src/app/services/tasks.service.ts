@@ -73,4 +73,18 @@ export class TasksService {
     }; 
     return this.httpCli.delete<string>(url, options);
   }
+
+  truncateTodos(): Observable<string>{
+    let url:string = 'http://ec2-54-175-137-78.compute-1.amazonaws.com:8080/todos/truncate';
+    const options: object = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    }; 
+    return this.httpCli.delete<string>(url, options);
+  }
+
+
+
 }
